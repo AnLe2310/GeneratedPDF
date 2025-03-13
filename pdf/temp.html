@@ -1,0 +1,1290 @@
+<html lang='en'>
+
+<head>
+  <style type='text/css'>
+    @import url(https://fonts.googleapis.com/css?family=Muli);
+
+    html,
+    body {
+      font-family: "Muli", sans-serif;
+      margin: 0;
+      height: 100vh;
+      color: #212529;
+      background-color: #fff;
+      line-height: 1.5rem;
+      font-size: 13px;
+    }
+
+    img.logo {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    img.emoticon {
+      width: 1rem;
+      height: 1rem
+    }
+
+    @media print {
+      .pagebreak {
+        page-break-after: always;
+      }
+    }
+
+    .main {
+      padding: 1.2rem 2.5rem;
+    }
+
+    .break-before {
+      page-break-before: always;
+      margin-top: 20px;
+    }
+
+    .no-break {
+      page-break-inside: avoid;
+    }
+
+    .bold {
+      font-weight: bold !important;
+    }
+
+    .no-bold {
+      font-weight: normal;
+    }
+
+    .img-cover {
+      max-width: 100%;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+
+    .generic:nth-child(odd)>.img-cover {
+      padding-left: .2rem;
+      padding-right: 2rem;
+    }
+
+    .generic:nth-child(even)>.img-cover {
+      padding-right: .2rem;
+      padding-left: 2rem;
+    }
+
+    .generic-container {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+    }
+
+    .generic-container>div:first-child {
+      background-color: #00000008;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      margin-bottom: 1.5rem;
+    }
+
+    .generic-container>div:first-child>* {
+      font-weight: normal;
+      font-size: 1.25rem;
+      line-height: 1.2rem;
+    }
+
+    .almost-center {
+      margin-right: 1rem;
+      margin-left: 1rem;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .almost-center>div {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin-bottom: 1rem;
+      justify-content: flex-end;
+    }
+
+    .tabbed {
+      margin-right: 1rem;
+      margin-left: 1rem;
+      padding-right: .5rem;
+      box-sizing: border-box;
+      justify-content: flex-end;
+    }
+
+    .tabbed>div {
+      display: flex;
+      flex-wrap: nowrap;
+      margin-bottom: 1rem;
+    }
+
+    .first,
+    .last,
+    .middle,
+    .generic {
+      display: flex;
+      text-wrap: nowrap;
+      flex-direction: column;
+    }
+
+    .almost-center .first {
+      display: flex;
+      flex: 0 0 40%;
+      justify-content: end;
+      text-align: end;
+      padding-right: 10px;
+    }
+
+    .almost-center .last {
+      flex: 0 0 60%;
+      padding-left: 10px;
+      text-wrap: wrap;
+      flex-wrap: wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .tabbed .first {
+      display: flex;
+      flex: 0 0 20%;
+      justify-content: start;
+      padding-right: 10px;
+    }
+
+    .indented:not(.last.indented) {
+      text-indent: 2rem;
+    }
+
+    .first.indented {
+      flex: 0 0 5%;
+    }
+
+    .last.indented {
+      text-indent: 10rem each-line !important;
+    }
+
+    .tabbed .last {
+      display: flex;
+      flex: 0 0 30%;
+      justify-content: start;
+      text-wrap: wrap;
+      flex-wrap: wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .tabbed .middle {
+      display: flex;
+      flex: 0 0 45%;
+      justify-content: start;
+      padding-right: 15px;
+      text-wrap: wrap;
+      text-align: justify;
+      overflow-wrap: anywhere;
+    }
+
+    .tabbed .middle.indented {
+      margin-left: 2rem;
+      text-indent: 0;
+    }
+
+    .tabbed .generic {
+      display: flex;
+      flex: 0 0 40%;
+    }
+
+    .generic-container .small-pad {
+      display: flex;
+      flex-direction: column;
+      flex: 0.3;
+      padding-left: 10px;
+    }
+
+    .generic-container .full {
+      display: flex;
+      flex: 1 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .generic-container .last>label {
+      font-weight: normal;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+      margin: .9rem 0;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .margin-y {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+  <meta charset='UTF-8' />
+  <meta http-equiv='Content-Type' content='application/xhtml+xml; charset=utf-8' />
+  <title>202503020017.pdf</title>
+</head>
+
+<body>
+  <div class="main">
+    <img src='data:image/png;base64,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&#x3D;' class='logo' alt='logo' />
+
+    <div class='generic-container'>
+      <div>
+        <span>Algemeen</span>
+      </div>
+
+      <div class='almost-center'>
+        <div>
+          <div class='first'>
+            <label>Inspectienummer: </label>
+          </div>
+          <div class='last'>
+            202503020017
+          </div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>Titel:</label>
+          </div>
+          <div class='last'>
+            Check out 204.A | Michal Dobrowolski 700888 | OTTO
+          </div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>Locatie: </label>
+          </div>
+          <div class='last'>
+            Lelystad, Maerlant 10
+          </div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>Land:</label>
+          </div>
+          <div class='last'>
+            Nederland
+          </div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>Provincie: </label>
+          </div>
+          <div class='last'>
+            Flevoland
+          </div>
+        </div>
+
+        <hr class="margin-y" />
+      </div>
+
+      <div class='almost-center'>
+        <div>
+          <div class='first'>
+            <label>Inspectiedatum:</label>
+          </div>
+          <div class='last'>
+            Sun Mar 02 2025
+          </div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>Geïnspecteerde gebouwen / onderdelen:</label>
+          </div>
+          <div class='last'>
+            204 LH 6
+          </div>
+        </div>
+
+          <div>
+            <div class='first'>
+              <label>Soort inspectie:</label>
+            </div>
+            <div class='last'>
+              regular
+            </div>
+          </div>
+
+        <div>
+          <div class='first'>
+            <label>Geïnspecteerd door:</label>
+          </div>
+          <div class='last'>
+            Lelystad - Jakub Wachowski (WO)
+          </div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>Verantwoordelijke routemanager:</label>
+          </div>
+          <div class='last'>
+            Lelystad - Grzegorz Pastuszka (WO)
+          </div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>Rapport verstuurd naar:</label>
+          </div>
+          <div class='last'>
+              <label>Labour Housing BV (Germaine55@infodationexample.nl)</label>
+              <label>Inspectie Contact Labour Housing 1 (email@example.com)</label>
+          </div>
+        </div>
+
+        <hr class="margin-y" />
+      </div>
+
+      <div class='almost-center'>
+        <div>
+          <div class='first'>
+            <label>
+              Contactpersoon
+              EE-Accommodations
+            </label>
+          </div>
+          <div class='last'></div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>Telefoonnummer:</label>
+          </div>
+          <div class='last'>
+            +31 (0)85 05 15 990
+          </div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>E-mail:</label>
+          </div>
+          <div class='last'>
+            beheer@ee-acco.nl
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class='generic-container'>
+      <div>
+        <span>Bewonersinformatie</span>
+      </div>
+
+      <div class='almost-center'>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class='generic-container'>
+      <div>
+        <span>Samenvatting</span>
+      </div>
+
+      <div class='almost-center'>
+        <div>
+          <div class='first'>
+            <label>Groene resultaten:</label>
+          </div>
+          <div class='last'>
+            6/8
+          </div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>Gele resultaten:</label>
+          </div>
+          <div class='last'>
+            2/8
+          </div>
+        </div>
+
+        <div>
+          <div class='first'>
+            <label>Rode resultaten:</label>
+          </div>
+          <div class='last'>
+            0/8
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='generic-container break-before'>
+      <div>
+        <span>Kostensamenvatting</span>
+      </div>
+
+      <div class='tabbed'>
+            <div>Lelystad, Maerlant 10 / 204 LH 6</div>
+
+              <div>
+                <div class="first indented"></div>
+                <div class='middle'>
+                  <label class='bold'>ROOM A</label>
+                </div>
+              </div>
+
+                <div>
+                  <div class="first indented"></div>
+                  <div class='middle'>
+                    Bevindingen
+                  </div>
+                  <div class='last'>
+                    Card not returned 
+Key to bike returned 4603
+Michal Dobrowolski 700888
+Airkey deactivated
+                  </div>
+                </div>
+
+              <div>
+                <div class="first indented"></div>
+                <div class='middle'>
+                  <label class='bold'>Hygiene</label>
+                </div>
+              </div>
+
+                <div>
+                  <div class="first indented"></div>
+                  <div class='middle'>
+                    Bevindingen
+                  </div>
+                  <div class='last'>
+                    Floor not vacuuming, mattress dirty from ointment or oil. Lots of flaky skin everywhere.
+The room must be cleaned very thoroughly before a new resident arrives.
+                  </div>
+                </div>
+
+              <div>
+                <div class="first indented"></div>
+                <div class='middle'>
+                  <label class='bold'>Damages</label>
+                </div>
+              </div>
+
+                <div>
+                  <div class="first indented"></div>
+                  <div class='middle'>
+                    Bevindingen
+                  </div>
+                  <div class='last'>
+                    Broken bedside lamp. 
+Mattress cover to change it because of hygiene.
+Carpet to change 2m2
+                  </div>
+                </div>
+
+                    <div>
+                      <div class="first indented"></div>
+                      <div class='middle'>
+                        Omschrijving kosten:
+                      </div>
+                      <div class='last'>
+                        lamp replacement 
+                      </div>
+                    </div>
+                    <div>
+                      <div class="first indented"></div>
+                      <div class='middle'>
+                        Omschrijving kosten:
+                      </div>
+                      <div class='last'>
+                        mattress cover replacement 
+                      </div>
+                    </div>
+                    <div>
+                      <div class="first indented"></div>
+                      <div class='middle'>
+                        Omschrijving kosten:
+                      </div>
+                      <div class='last'>
+                        carpet replacement 
+                      </div>
+                    </div>
+              <div>
+                <div class="first indented"></div>
+                <div class='middle'>
+                  <label class='bold'>Remarks</label>
+                </div>
+              </div>
+
+                <div>
+                  <div class="first indented"></div>
+                  <div class='middle'>
+                    Bevindingen
+                  </div>
+                  <div class='last'>
+                    Extra cleaning 1 hour.
+Floor vacummed 
+Room refreshed
+Cover replaced 
+Bedside lamp will be replaced in follow up
+                  </div>
+                </div>
+
+              <div>
+                <div class="first indented"></div>
+                <div class='middle'>
+                  <label class='bold'>Common Spaces</label>
+                </div>
+              </div>
+
+                <div>
+                  <div class="first indented"></div>
+                  <div class='middle'>
+                    Bevindingen
+                  </div>
+                  <div class='last'>
+                    No visible damages. 
+I noticed the tape on the siren fire alarm, it has been removed.
+                  </div>
+                </div>
+
+              <div>
+                <div class="first indented"></div>
+                <div class='middle'>
+                  <label class='bold'>Toilet/Bathroom</label>
+                </div>
+              </div>
+
+                <div>
+                  <div class="first indented"></div>
+                  <div class='middle'>
+                    Bevindingen
+                  </div>
+                  <div class='last'>
+                    No visible damages.
+                  </div>
+                </div>
+
+              <div>
+                <div class="first indented"></div>
+                <div class='middle'>
+                  <label class='bold'>Damages</label>
+                </div>
+              </div>
+
+                <div>
+                  <div class="first indented"></div>
+                  <div class='middle'>
+                    Bevindingen
+                  </div>
+                  <div class='last'>
+                    No visible damages
+                  </div>
+                </div>
+
+              <div>
+                <div class="first indented"></div>
+                <div class='middle'>
+                  <label class='bold'>Remarks</label>
+                </div>
+              </div>
+
+                <div>
+                  <div class="first indented"></div>
+                  <div class='middle'>
+                    Bevindingen
+                  </div>
+                  <div class='last'>
+                    -
+                  </div>
+                </div>
+
+
+            <div>
+              <div class="first indented"></div>
+              <div class='middle'>
+                Totaal gefactureerd:
+              </div>
+              <div class='last'>
+                € 171,17
+              </div>
+            </div>
+
+            <hr class="margin-y" />
+
+
+        <div>
+          Gefactureerd aan
+        </div>
+
+        <div>
+          <div class='first'></div>
+          <div class='first' style="margin-left: -2rem; margin-right: 2rem">
+            Labour Housing BV
+          </div>
+          <div class='last indented' style="text-wrap: nowrap;">
+            Germaine55@infodationexample.nl
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='generic-container break-before'>
+      <div>
+        <span>Gedetailleerde inspectiebevindingen</span>
+      </div>
+
+      <div class='tabbed'>
+          <div>
+            <label class="no-bold">Lelystad, Maerlant 10 / 204 LH 6</label>
+          </div>
+
+            <div style="margin-top: 1rem; !important">
+              <div class="first"></div>
+              <div class='middle indented'>
+                <label class="bold">ROOM A</label>
+              </div>
+              <div class='last indented'>
+                <span>
+                    <img class="emoticon" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAslJREFUOBGtVctL1FEUPueODoqPCCLUiZ4zGQYtsqJFq6AgarQC2wUuxqGshUVKy6lVZJhEZZgLqVUJpT0oCvoDymwRGeOMFqGjBBG+0EbmdzrfnWaaEc2MDsy9v3vPd75773kN0wISlGDuWJQOOyLVJLSTicoAE6IYMb0xzD0lXupu5/a5+eaKzZbqcN0Rh6lZRDZla7JXzBQ1wk095bcfZmrShCEJmb5I7JIjTiMAzPyBWDoMuV64V7i+YC8+nljrUGI/CQf0wK3YM2yat/vKzoc45GCdgwGSItMT4mLobKXX05YCJRF27NexXw+/1hsdPskOteACagtlEwZ7QzwzQfIAZOSiA4+9Ha+gXEr80cBeStAz9a3bRXwUz2cEYDQiH63PDJ1+4uu4sRRRpv5QJHCKHLoOn5b6TIVBNEEGn+3wrmkD2D8QuOgPByb84boLmcYL6WADWxHygsvY1ABSA5D2mVCDPqNIE+XMfELNnSydtVFb4MBldN6FBaKJ2QpTq/pzUk+5mtpKzwvq+KXVI2f1WZNCUpi/0l3UtfrmVNpwGR81X+sLZ77HJ5l4Cjf8r6LJTqNgRNL+K/Ps+Nw62KI0kdiv9eezFaBJCwWkaiB40CFpyBdXbVf5rRHs1YRPeGY40WmIWx9tbn+KvaTIPszM0stVkWCN4zj3EfpKn2cbolb7KZT3LT7yTn27xQKJP2PW9XrMajm8Ktfj69wQmkXJvo2MvNfUqzDGHDPoGko2iNpEOQEPYF4O79ZCvaPGP0BkyfRbo3/PnePeAwywfQOxepCBw3Jh80+ld3zsXMHE9MRG4IoLiofullyZxjckWXr8XA/LTZdeUmV9dhmFjnpGc0AFpBM9Bfo1286Em5G0gAwdR336uzkAt8z2VYdnwm5++9ILZcvfN1geNEKNizbYTNqsvwAtTRYqhR55ZlODTfdifwE/AajkcuKGM+vEAAAAAElFTkSuQmCC' alt="happy" />
+                </span>
+              </div>
+            </div>
+
+              <div>
+                <div class="first"></div>
+                <div class='middle indented'>
+                  Bevindingen
+                </div>
+                <div class='last indented'>
+                  Card not returned 
+Key to bike returned 4603
+Michal Dobrowolski 700888
+Airkey deactivated
+                </div>
+              </div>
+
+              <div></div>
+
+
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/ddb31e56-d27b-4eac-9109-a964a349261b_image_0.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/ddb31e56-d27b-4eac-9109-a964a349261b_image_0.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/543d4c8e-2d17-4757-a07b-1fe06cf8a2ee_image_1.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/543d4c8e-2d17-4757-a07b-1fe06cf8a2ee_image_1.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/cfc901b8-62d4-4eec-bb7b-4e654d243a04_image_2.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/cfc901b8-62d4-4eec-bb7b-4e654d243a04_image_2.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/1a147cd3-7cd2-49ed-82a1-6c3673156729_image_3.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/1a147cd3-7cd2-49ed-82a1-6c3673156729_image_3.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/da83be13-7ca0-4b3f-aecd-d45816e06573_image_4.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/da83be13-7ca0-4b3f-aecd-d45816e06573_image_4.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/20c30551-00e0-4d1a-921a-13e8a0a2461a_image_5.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/20c30551-00e0-4d1a-921a-13e8a0a2461a_image_5.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/cf609189-17f6-47de-8002-f94599432df6_image_6.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/cf609189-17f6-47de-8002-f94599432df6_image_6.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/b9e16340-ce64-4d3e-9e10-b90930c7c519_image_7.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/b9e16340-ce64-4d3e-9e10-b90930c7c519_image_7.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+
+              <div>
+                <div class="first"></div>
+                <div class="full">
+                  <hr style="width: 100%" />
+                </div>
+              </div>
+            <div style="margin-top: 1rem; !important">
+              <div class="first"></div>
+              <div class='middle indented'>
+                <label class="bold">Hygiene</label>
+              </div>
+              <div class='last indented'>
+                <span>
+                    <img class="emoticon" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAkhJREFUOBGlVU1rE1EUPXfaiB/xByiii+hGF7qoid0VBSGrtC78BaJgqphIi8tuFLGYQdsifvwDQc3GQAVxJ003IrRu6saF/oDGDyyT67kv88ZpHGxKByZv5t5zTu697907goxLH1/OofNhHIJxKEYgctDBVL9yXebdRP7UK7nyZKOfLv0GbYxOQKNZ2gv9vk3vImtAMC319y/T9sC/qM4E2ijdo9gL2gqMbgWQGnJyArv37ne3PZsNsgrVo4Y1jnG9ThJhT0yn6PiNQOq4UX4kMtP1wPTqBMLXV2lrsCQ5lmRW6kvThnGCcZoWGcVQllr7rTm3uvTB6DlEUasnOnTB0pd4Az6RXGBkk1JbWthKKO3XRnGSgnOMcg37Th4P8P3jhBOzmjFNA2tYusMSrGvjzO00OdN36Ag5cU15MljMbsWRVJ4lNVNcY9HzlL7eL8hoNvnk4vOImKcxrhIQMOJeclhMyOJS6PCfHyY2/5Dlk+E3sfu0WGouGh4Nqb6jyPYvXRjL49ePddaxk5yf7ctkM0zwm3NFPw9nQwawei5bc5jptkk5hg2c57rq6Xq/qP45a5Wb7aQpYq7Bli3CpiOIXkq3kLMN8OM45MbQ5s4Pdliqoqvz/mDvrPXC4ll00WJ0uyC91nO77EYQG9w5CGCnVP+XvvkM81fMhkNvjCWFdQJh6y43ySaOjY0VsHs4SxYxtOeLs9lu2uZZzRQcZYZjILXyLd9liaBz8mfgAQt8ZppTPjLP/0fQHMknAKgwgiJNBxxhgE/AH9s9BU4GkuSxAAAAAElFTkSuQmCC' alt="neutral" />
+                </span>
+              </div>
+            </div>
+
+              <div>
+                <div class="first"></div>
+                <div class='middle indented'>
+                  Bevindingen
+                </div>
+                <div class='last indented'>
+                  Floor not vacuuming, mattress dirty from ointment or oil. Lots of flaky skin everywhere.
+The room must be cleaned very thoroughly before a new resident arrives.
+                </div>
+              </div>
+
+              <div></div>
+
+
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/0a6bbf98-86cc-4514-b520-3a573d03c8c0_image_0.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/0a6bbf98-86cc-4514-b520-3a573d03c8c0_image_0.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/a433b3a5-85fc-4054-86e0-95b5c881fa66_image_1.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/a433b3a5-85fc-4054-86e0-95b5c881fa66_image_1.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/917b16e5-3512-4dfa-bc57-ce8931187410_image_2.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/917b16e5-3512-4dfa-bc57-ce8931187410_image_2.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/bafa8e7e-9c2a-48b5-90e7-85922c633392_image_3.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/bafa8e7e-9c2a-48b5-90e7-85922c633392_image_3.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/9fa7a72d-43ae-4af2-b385-76625f9f185e_image_4.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/9fa7a72d-43ae-4af2-b385-76625f9f185e_image_4.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/4f0bca4d-c650-4e02-a0a3-c8d5c586126f_image_0.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/4f0bca4d-c650-4e02-a0a3-c8d5c586126f_image_0.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/70cdb073-b297-4773-bed0-d59e0e708b36_image_1.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/70cdb073-b297-4773-bed0-d59e0e708b36_image_1.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+
+              <div>
+                <div class="first"></div>
+                <div class="full">
+                  <hr style="width: 100%" />
+                </div>
+              </div>
+            <div style="margin-top: 1rem; !important">
+              <div class="first"></div>
+              <div class='middle indented'>
+                <label class="bold">Damages</label>
+              </div>
+              <div class='last indented'>
+                <span>
+                    <img class="emoticon" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAkhJREFUOBGlVU1rE1EUPXfaiB/xByiii+hGF7qoid0VBSGrtC78BaJgqphIi8tuFLGYQdsifvwDQc3GQAVxJ003IrRu6saF/oDGDyyT67kv88ZpHGxKByZv5t5zTu697907goxLH1/OofNhHIJxKEYgctDBVL9yXebdRP7UK7nyZKOfLv0GbYxOQKNZ2gv9vk3vImtAMC319y/T9sC/qM4E2ijdo9gL2gqMbgWQGnJyArv37ne3PZsNsgrVo4Y1jnG9ThJhT0yn6PiNQOq4UX4kMtP1wPTqBMLXV2lrsCQ5lmRW6kvThnGCcZoWGcVQllr7rTm3uvTB6DlEUasnOnTB0pd4Az6RXGBkk1JbWthKKO3XRnGSgnOMcg37Th4P8P3jhBOzmjFNA2tYusMSrGvjzO00OdN36Ag5cU15MljMbsWRVJ4lNVNcY9HzlL7eL8hoNvnk4vOImKcxrhIQMOJeclhMyOJS6PCfHyY2/5Dlk+E3sfu0WGouGh4Nqb6jyPYvXRjL49ePddaxk5yf7ctkM0zwm3NFPw9nQwawei5bc5jptkk5hg2c57rq6Xq/qP45a5Wb7aQpYq7Bli3CpiOIXkq3kLMN8OM45MbQ5s4Pdliqoqvz/mDvrPXC4ll00WJ0uyC91nO77EYQG9w5CGCnVP+XvvkM81fMhkNvjCWFdQJh6y43ySaOjY0VsHs4SxYxtOeLs9lu2uZZzRQcZYZjILXyLd9liaBz8mfgAQt8ZppTPjLP/0fQHMknAKgwgiJNBxxhgE/AH9s9BU4GkuSxAAAAAElFTkSuQmCC' alt="neutral" />
+                </span>
+              </div>
+            </div>
+
+              <div>
+                <div class="first"></div>
+                <div class='middle indented'>
+                  Bevindingen
+                </div>
+                <div class='last indented'>
+                  Broken bedside lamp. 
+Mattress cover to change it because of hygiene.
+Carpet to change 2m2
+                </div>
+              </div>
+
+
+                  <div>
+                    <div class="first"></div>
+                    <div class='middle indented'>
+                      Omschrijving kosten:
+                    </div>
+                    <div class='last indented'>
+                      lamp replacement 
+                    </div>
+                  </div>
+
+                    <div>
+                      <div class="first"></div>
+                      <div class='middle indented'>
+                        Gefactureerde kosten:
+                      </div>
+                      <div class='last indented'>
+                        € 25,00
+                      </div>
+                    </div>
+                  <div>
+                    <div class="first"></div>
+                    <div class='middle indented'>
+                      Omschrijving kosten:
+                    </div>
+                    <div class='last indented'>
+                      mattress cover replacement 
+                    </div>
+                  </div>
+
+                    <div>
+                      <div class="first"></div>
+                      <div class='middle indented'>
+                        Gefactureerde kosten:
+                      </div>
+                      <div class='last indented'>
+                        € 89,17
+                      </div>
+                    </div>
+                  <div>
+                    <div class="first"></div>
+                    <div class='middle indented'>
+                      Omschrijving kosten:
+                    </div>
+                    <div class='last indented'>
+                      carpet replacement 
+                    </div>
+                  </div>
+
+                    <div>
+                      <div class="first"></div>
+                      <div class='middle indented'>
+                        Gefactureerde kosten:
+                      </div>
+                      <div class='last indented'>
+                        € 57,00
+                      </div>
+                    </div>
+
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/ac105c4b-9d58-4c4c-90f2-917ab1e8e903_image_0.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/ac105c4b-9d58-4c4c-90f2-917ab1e8e903_image_0.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/133195df-459a-45ae-89ef-f28dc2521c9c_image_1.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/133195df-459a-45ae-89ef-f28dc2521c9c_image_1.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/24ec64f6-bb1c-4489-9b19-cf230fed0200_image_2.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/24ec64f6-bb1c-4489-9b19-cf230fed0200_image_2.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/3204f349-c2e4-4e85-b908-2633c962bd06_image_3.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/3204f349-c2e4-4e85-b908-2633c962bd06_image_3.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/202233d0-23c7-467c-bbac-517b79e97fd2_image_0.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/202233d0-23c7-467c-bbac-517b79e97fd2_image_0.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/98369aaa-7f98-47f7-a56f-342be6751d99_image_1.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/98369aaa-7f98-47f7-a56f-342be6751d99_image_1.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/e0d53a39-906a-49ac-bf01-10139f2a6cd6_image_2.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/e0d53a39-906a-49ac-bf01-10139f2a6cd6_image_2.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+
+              <div>
+                <div class="first"></div>
+                <div class="full">
+                  <hr style="width: 100%" />
+                </div>
+              </div>
+            <div style="margin-top: 1rem; !important">
+              <div class="first"></div>
+              <div class='middle indented'>
+                <label class="bold">Remarks</label>
+              </div>
+              <div class='last indented'>
+                <span>
+                    <img class="emoticon" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAslJREFUOBGtVctL1FEUPueODoqPCCLUiZ4zGQYtsqJFq6AgarQC2wUuxqGshUVKy6lVZJhEZZgLqVUJpT0oCvoDymwRGeOMFqGjBBG+0EbmdzrfnWaaEc2MDsy9v3vPd75773kN0wISlGDuWJQOOyLVJLSTicoAE6IYMb0xzD0lXupu5/a5+eaKzZbqcN0Rh6lZRDZla7JXzBQ1wk095bcfZmrShCEJmb5I7JIjTiMAzPyBWDoMuV64V7i+YC8+nljrUGI/CQf0wK3YM2yat/vKzoc45GCdgwGSItMT4mLobKXX05YCJRF27NexXw+/1hsdPskOteACagtlEwZ7QzwzQfIAZOSiA4+9Ha+gXEr80cBeStAz9a3bRXwUz2cEYDQiH63PDJ1+4uu4sRRRpv5QJHCKHLoOn5b6TIVBNEEGn+3wrmkD2D8QuOgPByb84boLmcYL6WADWxHygsvY1ABSA5D2mVCDPqNIE+XMfELNnSydtVFb4MBldN6FBaKJ2QpTq/pzUk+5mtpKzwvq+KXVI2f1WZNCUpi/0l3UtfrmVNpwGR81X+sLZ77HJ5l4Cjf8r6LJTqNgRNL+K/Ps+Nw62KI0kdiv9eezFaBJCwWkaiB40CFpyBdXbVf5rRHs1YRPeGY40WmIWx9tbn+KvaTIPszM0stVkWCN4zj3EfpKn2cbolb7KZT3LT7yTn27xQKJP2PW9XrMajm8Ktfj69wQmkXJvo2MvNfUqzDGHDPoGko2iNpEOQEPYF4O79ZCvaPGP0BkyfRbo3/PnePeAwywfQOxepCBw3Jh80+ld3zsXMHE9MRG4IoLiofullyZxjckWXr8XA/LTZdeUmV9dhmFjnpGc0AFpBM9Bfo1286Em5G0gAwdR336uzkAt8z2VYdnwm5++9ILZcvfN1geNEKNizbYTNqsvwAtTRYqhR55ZlODTfdifwE/AajkcuKGM+vEAAAAAElFTkSuQmCC' alt="happy" />
+                </span>
+              </div>
+            </div>
+
+              <div>
+                <div class="first"></div>
+                <div class='middle indented'>
+                  Bevindingen
+                </div>
+                <div class='last indented'>
+                  Extra cleaning 1 hour.
+Floor vacummed 
+Room refreshed
+Cover replaced 
+Bedside lamp will be replaced in follow up
+                </div>
+              </div>
+
+              <div></div>
+
+
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/5c825831-9d8e-49b6-a489-9185a7a9cf11_image_0.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/5c825831-9d8e-49b6-a489-9185a7a9cf11_image_0.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/5d7f72d7-f383-47ef-92b2-76c1c11c6761_image_1.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/5d7f72d7-f383-47ef-92b2-76c1c11c6761_image_1.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/21e73a2d-10ef-4b8b-9b88-d0da40c87183_image_2.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/21e73a2d-10ef-4b8b-9b88-d0da40c87183_image_2.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/20087aac-cbe2-498c-8e05-9e33cae9a7e6_image_3.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/20087aac-cbe2-498c-8e05-9e33cae9a7e6_image_3.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/ead2ae2c-8211-4ea0-b206-24e5ebb0bd03_image_4.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/ead2ae2c-8211-4ea0-b206-24e5ebb0bd03_image_4.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+
+              <div>
+                <div class="first"></div>
+                <div class="full">
+                  <hr style="width: 100%" />
+                </div>
+              </div>
+            <div style="margin-top: 1rem; !important">
+              <div class="first"></div>
+              <div class='middle indented'>
+                <label class="bold">Common Spaces</label>
+              </div>
+              <div class='last indented'>
+                <span>
+                    <img class="emoticon" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAslJREFUOBGtVctL1FEUPueODoqPCCLUiZ4zGQYtsqJFq6AgarQC2wUuxqGshUVKy6lVZJhEZZgLqVUJpT0oCvoDymwRGeOMFqGjBBG+0EbmdzrfnWaaEc2MDsy9v3vPd75773kN0wISlGDuWJQOOyLVJLSTicoAE6IYMb0xzD0lXupu5/a5+eaKzZbqcN0Rh6lZRDZla7JXzBQ1wk095bcfZmrShCEJmb5I7JIjTiMAzPyBWDoMuV64V7i+YC8+nljrUGI/CQf0wK3YM2yat/vKzoc45GCdgwGSItMT4mLobKXX05YCJRF27NexXw+/1hsdPskOteACagtlEwZ7QzwzQfIAZOSiA4+9Ha+gXEr80cBeStAz9a3bRXwUz2cEYDQiH63PDJ1+4uu4sRRRpv5QJHCKHLoOn5b6TIVBNEEGn+3wrmkD2D8QuOgPByb84boLmcYL6WADWxHygsvY1ABSA5D2mVCDPqNIE+XMfELNnSydtVFb4MBldN6FBaKJ2QpTq/pzUk+5mtpKzwvq+KXVI2f1WZNCUpi/0l3UtfrmVNpwGR81X+sLZ77HJ5l4Cjf8r6LJTqNgRNL+K/Ps+Nw62KI0kdiv9eezFaBJCwWkaiB40CFpyBdXbVf5rRHs1YRPeGY40WmIWx9tbn+KvaTIPszM0stVkWCN4zj3EfpKn2cbolb7KZT3LT7yTn27xQKJP2PW9XrMajm8Ktfj69wQmkXJvo2MvNfUqzDGHDPoGko2iNpEOQEPYF4O79ZCvaPGP0BkyfRbo3/PnePeAwywfQOxepCBw3Jh80+ld3zsXMHE9MRG4IoLiofullyZxjckWXr8XA/LTZdeUmV9dhmFjnpGc0AFpBM9Bfo1286Em5G0gAwdR336uzkAt8z2VYdnwm5++9ILZcvfN1geNEKNizbYTNqsvwAtTRYqhR55ZlODTfdifwE/AajkcuKGM+vEAAAAAElFTkSuQmCC' alt="happy" />
+                </span>
+              </div>
+            </div>
+
+              <div>
+                <div class="first"></div>
+                <div class='middle indented'>
+                  Bevindingen
+                </div>
+                <div class='last indented'>
+                  No visible damages. 
+I noticed the tape on the siren fire alarm, it has been removed.
+                </div>
+              </div>
+
+              <div></div>
+
+
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/70f186ed-2914-4695-8d62-dd08fd086e12_image_0.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/70f186ed-2914-4695-8d62-dd08fd086e12_image_0.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/052f3b57-3f04-42a2-98fe-8d64c2f9092d_image_1.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/052f3b57-3f04-42a2-98fe-8d64c2f9092d_image_1.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/3eb45390-6af2-4005-b626-52d02620c39b_image_2.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/3eb45390-6af2-4005-b626-52d02620c39b_image_2.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/3ad0300d-07d4-493a-99e9-06eb3bcca063_image_3.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/3ad0300d-07d4-493a-99e9-06eb3bcca063_image_3.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/f164ecc0-2d46-4383-8cfa-1c1fa24c44c9_image_4.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/f164ecc0-2d46-4383-8cfa-1c1fa24c44c9_image_4.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/a01671fa-b125-439e-a6a8-b4bf62fe1952_image_5.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/a01671fa-b125-439e-a6a8-b4bf62fe1952_image_5.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/9cd8a4e1-1b5a-4582-a663-42d37d1df7db_image_6.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/9cd8a4e1-1b5a-4582-a663-42d37d1df7db_image_6.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/d91688ba-6b8a-4cb7-a584-120cfe21066d_image_7.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/d91688ba-6b8a-4cb7-a584-120cfe21066d_image_7.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+
+              <div>
+                <div class="first"></div>
+                <div class="full">
+                  <hr style="width: 100%" />
+                </div>
+              </div>
+            <div style="margin-top: 1rem; !important">
+              <div class="first"></div>
+              <div class='middle indented'>
+                <label class="bold">Toilet/Bathroom</label>
+              </div>
+              <div class='last indented'>
+                <span>
+                    <img class="emoticon" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAslJREFUOBGtVctL1FEUPueODoqPCCLUiZ4zGQYtsqJFq6AgarQC2wUuxqGshUVKy6lVZJhEZZgLqVUJpT0oCvoDymwRGeOMFqGjBBG+0EbmdzrfnWaaEc2MDsy9v3vPd75773kN0wISlGDuWJQOOyLVJLSTicoAE6IYMb0xzD0lXupu5/a5+eaKzZbqcN0Rh6lZRDZla7JXzBQ1wk095bcfZmrShCEJmb5I7JIjTiMAzPyBWDoMuV64V7i+YC8+nljrUGI/CQf0wK3YM2yat/vKzoc45GCdgwGSItMT4mLobKXX05YCJRF27NexXw+/1hsdPskOteACagtlEwZ7QzwzQfIAZOSiA4+9Ha+gXEr80cBeStAz9a3bRXwUz2cEYDQiH63PDJ1+4uu4sRRRpv5QJHCKHLoOn5b6TIVBNEEGn+3wrmkD2D8QuOgPByb84boLmcYL6WADWxHygsvY1ABSA5D2mVCDPqNIE+XMfELNnSydtVFb4MBldN6FBaKJ2QpTq/pzUk+5mtpKzwvq+KXVI2f1WZNCUpi/0l3UtfrmVNpwGR81X+sLZ77HJ5l4Cjf8r6LJTqNgRNL+K/Ps+Nw62KI0kdiv9eezFaBJCwWkaiB40CFpyBdXbVf5rRHs1YRPeGY40WmIWx9tbn+KvaTIPszM0stVkWCN4zj3EfpKn2cbolb7KZT3LT7yTn27xQKJP2PW9XrMajm8Ktfj69wQmkXJvo2MvNfUqzDGHDPoGko2iNpEOQEPYF4O79ZCvaPGP0BkyfRbo3/PnePeAwywfQOxepCBw3Jh80+ld3zsXMHE9MRG4IoLiofullyZxjckWXr8XA/LTZdeUmV9dhmFjnpGc0AFpBM9Bfo1286Em5G0gAwdR336uzkAt8z2VYdnwm5++9ILZcvfN1geNEKNizbYTNqsvwAtTRYqhR55ZlODTfdifwE/AajkcuKGM+vEAAAAAElFTkSuQmCC' alt="happy" />
+                </span>
+              </div>
+            </div>
+
+              <div>
+                <div class="first"></div>
+                <div class='middle indented'>
+                  Bevindingen
+                </div>
+                <div class='last indented'>
+                  No visible damages.
+                </div>
+              </div>
+
+              <div></div>
+
+
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/ffd06fdb-0273-4b40-9911-7e031d38d8ad_image_0.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/ffd06fdb-0273-4b40-9911-7e031d38d8ad_image_0.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/98e4092a-e8b7-48af-8e5c-c54f7c998894_image_1.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/98e4092a-e8b7-48af-8e5c-c54f7c998894_image_1.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/42eab431-9781-474c-b158-6cc5ee89f9ed_image_2.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/42eab431-9781-474c-b158-6cc5ee89f9ed_image_2.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/b4c510fd-3fe5-4b2d-b841-b7228080da54_image_3.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/b4c510fd-3fe5-4b2d-b841-b7228080da54_image_3.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/84c674e5-7857-4b2b-ae4a-843ea2c0eb0f_image_4.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/84c674e5-7857-4b2b-ae4a-843ea2c0eb0f_image_4.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/5643336f-ebf6-492c-b4cc-90ef08c155bf_image_5.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/5643336f-ebf6-492c-b4cc-90ef08c155bf_image_5.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+                <div style="page-break-inside: avoid; page-break-before: auto;">
+                  <div class="first"></div>
+                    <div class="generic">
+                      <img src="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/b7fe1c50-50d4-4247-8785-032f6c7a08bf_image_6.jpg" class="img-cover" alt="image">
+                      <div style="text-align: center;">
+                        Click <a href="https://storage.googleapis.com/ee-acc-v2-prod-bucket/Homee/images/b7fe1c50-50d4-4247-8785-032f6c7a08bf_image_6.jpg" target="_blank">here</a> to view
+                      </div>
+                    </div>
+                </div>
+
+              <div>
+                <div class="first"></div>
+                <div class="full">
+                  <hr style="width: 100%" />
+                </div>
+              </div>
+            <div style="margin-top: 1rem; !important">
+              <div class="first"></div>
+              <div class='middle indented'>
+                <label class="bold">Damages</label>
+              </div>
+              <div class='last indented'>
+                <span>
+                    <img class="emoticon" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAslJREFUOBGtVctL1FEUPueODoqPCCLUiZ4zGQYtsqJFq6AgarQC2wUuxqGshUVKy6lVZJhEZZgLqVUJpT0oCvoDymwRGeOMFqGjBBG+0EbmdzrfnWaaEc2MDsy9v3vPd75773kN0wISlGDuWJQOOyLVJLSTicoAE6IYMb0xzD0lXupu5/a5+eaKzZbqcN0Rh6lZRDZla7JXzBQ1wk095bcfZmrShCEJmb5I7JIjTiMAzPyBWDoMuV64V7i+YC8+nljrUGI/CQf0wK3YM2yat/vKzoc45GCdgwGSItMT4mLobKXX05YCJRF27NexXw+/1hsdPskOteACagtlEwZ7QzwzQfIAZOSiA4+9Ha+gXEr80cBeStAz9a3bRXwUz2cEYDQiH63PDJ1+4uu4sRRRpv5QJHCKHLoOn5b6TIVBNEEGn+3wrmkD2D8QuOgPByb84boLmcYL6WADWxHygsvY1ABSA5D2mVCDPqNIE+XMfELNnSydtVFb4MBldN6FBaKJ2QpTq/pzUk+5mtpKzwvq+KXVI2f1WZNCUpi/0l3UtfrmVNpwGR81X+sLZ77HJ5l4Cjf8r6LJTqNgRNL+K/Ps+Nw62KI0kdiv9eezFaBJCwWkaiB40CFpyBdXbVf5rRHs1YRPeGY40WmIWx9tbn+KvaTIPszM0stVkWCN4zj3EfpKn2cbolb7KZT3LT7yTn27xQKJP2PW9XrMajm8Ktfj69wQmkXJvo2MvNfUqzDGHDPoGko2iNpEOQEPYF4O79ZCvaPGP0BkyfRbo3/PnePeAwywfQOxepCBw3Jh80+ld3zsXMHE9MRG4IoLiofullyZxjckWXr8XA/LTZdeUmV9dhmFjnpGc0AFpBM9Bfo1286Em5G0gAwdR336uzkAt8z2VYdnwm5++9ILZcvfN1geNEKNizbYTNqsvwAtTRYqhR55ZlODTfdifwE/AajkcuKGM+vEAAAAAElFTkSuQmCC' alt="happy" />
+                </span>
+              </div>
+            </div>
+
+              <div>
+                <div class="first"></div>
+                <div class='middle indented'>
+                  Bevindingen
+                </div>
+                <div class='last indented'>
+                  No visible damages
+                </div>
+              </div>
+
+              <div></div>
+
+
+            <div style="margin-top: 1rem; !important">
+              <div class="first"></div>
+              <div class='middle indented'>
+                <label class="bold">Remarks</label>
+              </div>
+              <div class='last indented'>
+                <span>
+                    <img class="emoticon" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAslJREFUOBGtVctL1FEUPueODoqPCCLUiZ4zGQYtsqJFq6AgarQC2wUuxqGshUVKy6lVZJhEZZgLqVUJpT0oCvoDymwRGeOMFqGjBBG+0EbmdzrfnWaaEc2MDsy9v3vPd75773kN0wISlGDuWJQOOyLVJLSTicoAE6IYMb0xzD0lXupu5/a5+eaKzZbqcN0Rh6lZRDZla7JXzBQ1wk095bcfZmrShCEJmb5I7JIjTiMAzPyBWDoMuV64V7i+YC8+nljrUGI/CQf0wK3YM2yat/vKzoc45GCdgwGSItMT4mLobKXX05YCJRF27NexXw+/1hsdPskOteACagtlEwZ7QzwzQfIAZOSiA4+9Ha+gXEr80cBeStAz9a3bRXwUz2cEYDQiH63PDJ1+4uu4sRRRpv5QJHCKHLoOn5b6TIVBNEEGn+3wrmkD2D8QuOgPByb84boLmcYL6WADWxHygsvY1ABSA5D2mVCDPqNIE+XMfELNnSydtVFb4MBldN6FBaKJ2QpTq/pzUk+5mtpKzwvq+KXVI2f1WZNCUpi/0l3UtfrmVNpwGR81X+sLZ77HJ5l4Cjf8r6LJTqNgRNL+K/Ps+Nw62KI0kdiv9eezFaBJCwWkaiB40CFpyBdXbVf5rRHs1YRPeGY40WmIWx9tbn+KvaTIPszM0stVkWCN4zj3EfpKn2cbolb7KZT3LT7yTn27xQKJP2PW9XrMajm8Ktfj69wQmkXJvo2MvNfUqzDGHDPoGko2iNpEOQEPYF4O79ZCvaPGP0BkyfRbo3/PnePeAwywfQOxepCBw3Jh80+ld3zsXMHE9MRG4IoLiofullyZxjckWXr8XA/LTZdeUmV9dhmFjnpGc0AFpBM9Bfo1286Em5G0gAwdR336uzkAt8z2VYdnwm5++9ILZcvfN1geNEKNizbYTNqsvwAtTRYqhR55ZlODTfdifwE/AajkcuKGM+vEAAAAAElFTkSuQmCC' alt="happy" />
+                </span>
+              </div>
+            </div>
+
+              <div>
+                <div class="first"></div>
+                <div class='middle indented'>
+                  Bevindingen
+                </div>
+                <div class='last indented'>
+                  -
+                </div>
+              </div>
+
+              <div></div>
+
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
